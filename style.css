@@ -1,28 +1,28 @@
 /* --- REGRA PARA EVITAR QUEBRA DE LINHA (One Line Text) --- */
 .one-line-text {
-    white-space: nowrap;
-    overflow: hidden;   
-    text-overflow: ellipsis;
+    white-space: nowrap; 
+    overflow: hidden;    
+    text-overflow: ellipsis; 
 }
 
 /* Estilos Globais */
 body {
-    background-color: #1a1a2e;
+    background-color: #1a1a2e; 
     margin: 0;
     padding: 0; 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; 
     color: #e0e0e0; 
     
-    display: flex;
+    /* CORREÇÃO CRÍTICA: Removemos height: 100vh e overflow: hidden */
+    display: flex; 
     flex-direction: column;
-    min-height: 100vh; 
-    height: 100vh; 
-    overflow: hidden; 
+    min-height: 100vh; /* Mantemos o min-height para garantir a altura mínima */
+    /* overflow: hidden; foi removido */
 }
 
 header {
-    position: relative;
-    height: 95px;
+    position: relative; 
+    height: 95px; 
     padding: 0 10px; 
     flex-shrink: 0; 
 }
@@ -48,10 +48,11 @@ header {
 
 /* --- Container com a imagem de fundo --- */
 .container {
-    flex-grow: 1;
+    /* Ocupa todo o espaço vertical restante */
+    flex-grow: 1; 
     
-    background: url('') no-repeat center center;
-    background-size: cover;
+    background: url('https://www.fatosdesconhecidos.com.br/wp-content/uploads/2014/08/truque-800x434.jpg') no-repeat center center;
+    background-size: cover; /* Garante que a imagem preencha o fundo */
     background-position: center; 
     
     display: flex;
@@ -60,10 +61,11 @@ header {
     padding: 20px; 
     width: 100%;
     box-sizing: border-box;
-    overflow: auto; 
+    /* overflow: auto; foi removido, o body lidará com a rolagem se for preciso */
 }
 
-/* --- Div de Conteúdo principal --- */
+/* --- O restante do CSS para layout e cores não foi alterado --- */
+
 .content {
     text-align: center;
     background-color: rgba(26, 26, 46, 0.95); 
@@ -108,7 +110,7 @@ header {
 }
 
 #escolhas button {
-    background-color: #00bcd4;
+    background-color: #00bcd4; 
     border: 2px solid #00bcd4;
     border-radius: 8px;
     padding: 15px 25px;
@@ -116,15 +118,15 @@ header {
     color: white;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     flex-shrink: 0; 
 }
 
 #escolhas button:hover {
-    background-color: #ff007f;
+    background-color: #ff007f; 
     border-color: #ff007f;
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-5px) scale(1.05); 
     box-shadow: 0 6px 15px rgba(255,0,127,0.5);
 }
 
@@ -200,7 +202,7 @@ header {
 }
 
 #placar-guerreiro {
-    color: #ff007f;
+    color: #ff007f; 
 }
 
 
@@ -214,7 +216,7 @@ header {
 }
 
 .btn-controle {
-    background-color: #00bcd4;
+    background-color: #00bcd4; 
     border: 2px solid #00bcd4;
     border-radius: 8px;
     padding: 12px 25px;
@@ -227,19 +229,19 @@ header {
 }
 
 .btn-controle:hover {
-    background-color: #ff007f;
+    background-color: #ff007f; 
     border-color: #ff007f;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(255,0,127,0.5);
 }
 
 .btn-finalizar {
-    background-color: #ff007f;
+    background-color: #ff007f; 
     border-color: #ff007f;
 }
 
 .btn-finalizar:hover {
-    background-color: #00bcd4;
+    background-color: #00bcd4; 
     border-color: #00bcd4;
 }
 
@@ -255,13 +257,12 @@ header {
     color: #00bcd4; 
 }
 #mensagem-final.derrota {
-    color: #ff007f;
+    color: #ff007f; 
 }
 #mensagem-final.empate {
-    color: #ffc107;
+    color: #ffc107; 
 }
 
-/* --- Media Query para Responsividade Extrema --- */
 @media (max-width: 600px) {
     .one-line-text {
         white-space: normal;
@@ -279,7 +280,7 @@ header {
     }
     
     #mensagem-final {
-        font-size: 1.2em !important;
+        font-size: 1.2em !important; 
     }
 
     #escolhas {
@@ -312,4 +313,3 @@ header {
         gap: 10px;
     }
 }
-/* CHAVE DE FECHAMENTO FINAL CORRIGIDA */
