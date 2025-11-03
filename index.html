@@ -5,52 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>✂️ Jokenpô - Imersão DEV</title>
     
+    <base href="/jokenpo/"> 
+
     <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
-    <header>
-        <img src="https://cdn-icons-png.flaticon.com/512/6836/6836871.png" alt="Tesoura, Papel e Pedra" class="logo">
-    </header>
-
-    <main class="container">
-        <div class="content">
-            <h2>DESAFIO JOKENPÔ!</h2> 
-            <p id="instrucao-inicial">Escolha sua jogada abaixo:</p>
-            
-            <div id="escolhas">
-                <button onclick="jogarJokenpo('pedra')">🪨 Pedra</button>
-                <button onclick="jogarJokenpo('papel')">📄 Papel</button>
-                <button onclick="jogarJokenpo('tesoura')">✂️ Tesoura</button>
-            </div>
-            
-            <div id="visualizacao-jogadas" style="margin-top: 30px; display: flex; justify-content: center; gap: 30px;">
-                <div class="jogada-display">
-                    <h3 style="color: #00bcd4;">Você:</h3>
-                    <div id="jogador-escolha-icone" class="icone-escolha">?</div>
-                </div>
-                <div class="jogada-display">
-                    <h3 style="color: #ff007f;">Guerreiro:</h3>
-                    <div id="guerreiro-escolha-icone" class="icone-escolha">?</div>
-                </div>
-            </div>
-
-            <div id="resultado" style="margin-top: 20px;">
-                </div>
-
-            <div id="placar" style="margin-top: 20px; font-size: 1.2em;">
-                <p class="one-line-text">Placar: Você <span id="placar-jogador">0</span> x <span id="placar-guerreiro">0</span> Guerreiro</p>
-            </div>
-
-            <div id="controles-finais" style="margin-top: 30px; display: none;">
-                <button onclick="reiniciarJogo()" class="btn-controle">Jogar Novamente</button>
-                <button onclick="finalizarJogo()" class="btn-controle btn-finalizar">Finalizar Jogo</button>
-            </div>
-
-            <div id="mensagem-final" style="display: none; margin-top: 30px; font-size: 1.5em; font-weight: bold;">
-                </div>
-        </div>
-    </main>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+</head>     
