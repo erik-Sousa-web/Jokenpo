@@ -1,28 +1,59 @@
+/* --- REGRA PARA EVITAR QUEBRA DE LINHA (One Line Text) --- */
+.one-line-text {
+    white-space: nowrap; 
+    overflow: hidden;    
+    text-overflow: ellipsis; 
+}
+
 /* Estilos Globais */
 body {
-    /* MUDANÇA CRÍTICA: O BACKGROUND VAI PARA O BODY E É FIXO */
-    background: url('https://www.fatosdesconhecidos.com.br/wp-content/uploads/2014/08/truque-800x434.jpg') no-repeat center center;
-    background-size: cover; 
-    background-attachment: fixed; /* MANTÉM O FUNDO FIXO E IMPEDE O ALONGAMENTO */
-    
+    background-color: #1a1a2e; 
     margin: 0;
     padding: 0; 
     font-family: 'Poppins', sans-serif; 
     color: #e0e0e0; 
     
-    /* Mantemos o flexbox para centralizar o conteúdo */
+    /* CORREÇÃO CRÍTICA: Removemos height: 100vh e overflow: hidden */
     display: flex; 
     flex-direction: column;
-    min-height: 100vh; 
-    height: 100vh;
-    overflow-x: hidden; /* Apenas esconde a rolagem horizontal, se houver */
+    min-height: 100vh; /* Mantemos o min-height para garantir a altura mínima */
+    /* overflow: hidden; foi removido */
 }
 
-/* Removemos o background do container e garantimos que ele use a altura flexível */
+header {
+    position: relative; 
+    height: 95px; 
+    padding: 0 10px; 
+    flex-shrink: 0; 
+}
+
+.logo {
+    position: absolute;
+    top: 20px; 
+    right: 20px;
+    max-width: 80px; 
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)); 
+    animation: bounceIn 1s ease-out; 
+}
+
+/* Animação para o logo */
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+
+/* --- Container com a imagem de fundo --- */
 .container {
+    /* Ocupa todo o espaço vertical restante */
     flex-grow: 1; 
     
-    background: none; /* REMOVE O BACKGROUND DUPLICADO */
+    background: url('https://www.fatosdesconhecidos.com.br/wp-content/uploads/2014/08/truque-800x434.jpg') no-repeat center center;
+    background-size: cover; /* Garante que a imagem preencha o fundo */
+    background-position: center; 
     
     display: flex;
     justify-content: center;
@@ -31,4 +62,261 @@ body {
     width: 100%;
     box-sizing: border-box;
     /* overflow: auto; foi removido, o body lidará com a rolagem se for preciso */
+}
+
+/* --- O restante do CSS para layout e cores não foi alterado --- */
+
+.content {
+    text-align: center;
+    background-color: rgba(26, 26, 46, 0.95); 
+    padding: 40px 70px; 
+    border-radius: 15px;
+    border: 3px solid #ff007f; 
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.7); 
+    max-width: 650px; 
+    width: 100%;
+    animation: fadeIn 1.5s ease-out; 
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content h2 {
+    margin-bottom: 10px;
+    color: #00bcd4; 
+    text-transform: uppercase;
+    white-space: normal; 
+    font-size: 2.5em; 
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+#instrucao-inicial {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #c0c0c0; 
+}
+
+/* --- Estilos dos Botões de Escolha --- */
+#escolhas {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    margin-bottom: 20px;
+    flex-wrap: nowrap; 
+}
+
+#escolhas button {
+    background-color: #00bcd4; 
+    border: 2px solid #00bcd4;
+    border-radius: 8px;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    flex-shrink: 0; 
+}
+
+#escolhas button:hover {
+    background-color: #ff007f; 
+    border-color: #ff007f;
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 6px 15px rgba(255,0,127,0.5);
+}
+
+/* --- Visualização das Jogadas --- */
+#visualizacao-jogadas {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.jogada-display {
+    text-align: center;
+}
+
+.jogada-display h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    white-space: nowrap; 
+}
+
+.icone-escolha {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 3px solid #00bcd4; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em; 
+    color: #e0e0e0;
+    transition: transform 0.3s ease-in-out;
+    flex-shrink: 0; 
+}
+
+.icone-escolha.animated {
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
+#resultado p {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#resultado p:nth-child(2), 
+#resultado p:nth-child(3) { 
+    font-size: 1.1em;
+    color: #c0c0c0;
+}
+
+
+#placar {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #e0e0e0;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#placar-jogador {
+    color: #00bcd4; 
+}
+
+#placar-guerreiro {
+    color: #ff007f; 
+}
+
+
+#controles-finais {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-controle {
+    background-color: #00bcd4; 
+    border: 2px solid #00bcd4;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-controle:hover {
+    background-color: #ff007f; 
+    border-color: #ff007f;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255,0,127,0.5);
+}
+
+.btn-finalizar {
+    background-color: #ff007f; 
+    border-color: #ff007f;
+}
+
+.btn-finalizar:hover {
+    background-color: #00bcd4; 
+    border-color: #00bcd4;
+}
+
+
+#mensagem-final {
+    color: #e0e0e0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    white-space: normal; 
+    text-align: center;
+    padding: 0 10px; 
+}
+#mensagem-final.vitoria {
+    color: #00bcd4; 
+}
+#mensagem-final.derrota {
+    color: #ff007f; 
+}
+#mensagem-final.empate {
+    color: #ffc107; 
+}
+
+@media (max-width: 600px) {
+    .one-line-text {
+        white-space: normal;
+        text-overflow: clip;
+    }
+    
+    .content {
+        padding: 20px 15px;
+        margin: 0 5px;
+    }
+
+    .content h2 {
+        font-size: 1.6em; 
+        letter-spacing: 1px;
+    }
+    
+    #mensagem-final {
+        font-size: 1.2em !important; 
+    }
+
+    #escolhas {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #escolhas button {
+        width: 100%; 
+        padding: 12px 15px;
+        font-size: 1.1em;
+        margin: 0;
+    }
+
+    #visualizacao-jogadas {
+        flex-direction: row; 
+        gap: 20px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .icone-escolha {
+        width: 60px;
+        height: 60px;
+        font-size: 2em;
+    }
+
+    #controles-finais {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media (max-width: 600px) {
+  body::after {
+    width: 55vw;
+    max-width: 250px;
+    opacity: .9;
+  }
 }
