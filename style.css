@@ -1,0 +1,304 @@
+/* --- REGRA PARA EVITAR QUEBRA DE LINHA (One Line Text) --- */
+.one-line-text {
+    white-space: nowrap; 
+    overflow: hidden;    
+    text-overflow: ellipsis; 
+}
+
+/* Estilos Globais */
+body {
+    background-color: #1a1a2e; 
+    margin: 0;
+    padding: 0; 
+    font-family: 'Poppins', sans-serif; 
+    color: #e0e0e0; 
+    display: flex; 
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: relative; 
+    /* AJUSTE: Mudei min-height para height e reduzi o padding vertical, 
+       garantindo que ele ocupe APENAS o espaço do logo, liberando o resto para o container. */
+    height: 95px; 
+    padding: 0 10px; 
+}
+
+.logo {
+    position: absolute;
+    top: 20px; 
+    right: 20px;
+    max-width: 80px; 
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)); 
+    animation: bounceIn 1s ease-out; 
+}
+
+/* Animação para o logo */
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+
+/* --- Container com a imagem de fundo --- */
+.container {
+    /* AJUSTE CRÍTICO: flex-grow: 1 garante que o container use TODO o espaço vertical restante. */
+    flex-grow: 1; 
+    
+    background: url('https://pepeladeira.github.io/rock-paper-or-scissors/pedra-papel-tesoura.png');
+    background-size: cover; 
+    background-position: center; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+}
+
+/* --- Div de Conteúdo principal --- */
+.content {
+    text-align: center;
+    background-color: rgba(26, 26, 46, 0.95); 
+    padding: 40px 70px; 
+    border-radius: 15px;
+    border: 3px solid #ff007f; 
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.7); 
+    max-width: 650px; 
+    width: 100%;
+    animation: fadeIn 1.5s ease-out; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content h2 {
+    /* AJUSTE: Agora é "DESAFIO JOKENPÔ!" que é mais curto e cabe melhor */
+    margin-bottom: 10px;
+    color: #00bcd4; 
+    text-transform: uppercase;
+    white-space: normal; 
+    font-size: 2.5em; 
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+#instrucao-inicial {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #c0c0c0; 
+}
+
+/* --- Estilos dos Botões de Escolha (Sem alteração) --- */
+#escolhas {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    margin-bottom: 20px;
+    flex-wrap: wrap; 
+}
+
+#escolhas button {
+    background-color: #00bcd4; 
+    border: 2px solid #00bcd4;
+    border-radius: 8px;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#escolhas button:hover {
+    background-color: #ff007f; 
+    border-color: #ff007f;
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 6px 15px rgba(255,0,127,0.5);
+}
+
+/* --- Visualização das Jogadas (Sem alteração) --- */
+#visualizacao-jogadas {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.jogada-display {
+    text-align: center;
+}
+
+.jogada-display h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.icone-escolha {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 3px solid #00bcd4; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em; 
+    color: #e0e0e0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.icone-escolha.animated {
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
+/* --- Estilos do Resultado (Sem alteração) --- */
+#resultado p {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#resultado p:nth-child(2), 
+#resultado p:nth-child(3) { 
+    font-size: 1.1em;
+    color: #c0c0c0;
+}
+
+
+/* --- Estilos do Placar (Sem alteração) --- */
+#placar {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #e0e0e0;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#placar-jogador {
+    color: #00bcd4; 
+}
+
+#placar-guerreiro {
+    color: #ff007f; 
+}
+
+
+/* --- Estilos dos Controles Finais (Sem alteração) --- */
+#controles-finais {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-controle {
+    background-color: #00bcd4; 
+    border: 2px solid #00bcd4;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.btn-controle:hover {
+    background-color: #ff007f; 
+    border-color: #ff007f;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255,0,127,0.5);
+}
+
+.btn-finalizar {
+    background-color: #ff007f; 
+    border-color: #ff007f;
+}
+
+.btn-finalizar:hover {
+    background-color: #00bcd4; 
+    border-color: #00bcd4;
+}
+
+
+/* --- Mensagem Final (Sem alteração) --- */
+#mensagem-final {
+    color: #e0e0e0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    white-space: normal; 
+    text-align: center;
+    padding: 0 10px; 
+}
+#mensagem-final.vitoria {
+    color: #00bcd4; 
+}
+#mensagem-final.derrota {
+    color: #ff007f; 
+}
+#mensagem-final.empate {
+    color: #ffc107; 
+}
+
+
+/* --- Media Query para Responsividade (Sem alteração) --- */
+@media (max-width: 600px) {
+    .one-line-text {
+        white-space: normal;
+        text-overflow: clip;
+    }
+    
+    .content {
+        padding: 25px 20px; 
+        margin: 0 10px;
+    }
+
+    .content h2 {
+        font-size: 1.6em; 
+        letter-spacing: 1px;
+    }
+    
+    #mensagem-final {
+        font-size: 1.2em !important; 
+    }
+
+    #escolhas button {
+        padding: 10px 15px;
+        font-size: 1em;
+        margin: 5px;
+    }
+
+    #visualizacao-jogadas {
+        flex-direction: column; 
+        gap: 20px;
+    }
+
+    .icone-escolha {
+        width: 60px;
+        height: 60px;
+        font-size: 2em;
+    }
+
+    #controles-finais {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
