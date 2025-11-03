@@ -51,7 +51,7 @@ header {
     /* Ocupa todo o espaço vertical restante */
     flex-grow: 1; 
     
-    background: url('https://www.fatosdesconhecidos.com.br/wp-content/uploads/2014/08/truque-800x434.jpg') no-repeat center center;
+    background: url repeat center center;
     background-size: cover; /* Garante que a imagem preencha o fundo */
     background-position: center; 
     
