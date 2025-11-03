@@ -177,12 +177,12 @@ function finalizarJogo() {
         classeCor = 'empate';
     }
 
-    // NOVO: Separando a mensagem e o placar em duas linhas
+    // Separando a mensagem e o placar em duas linhas
     const placarFinalMensagem = `Placar final: ${placarJogador} x ${placarGuerreiro}!`;
 
     mensagemFinalDiv.innerHTML = `
-        <p class="one-line-text">${mensagemPrincipal}</p>
-        <p class="one-line-text">${placarFinalMensagem}</p>
+        <p>${mensagemPrincipal}</p>
+        <p>${placarFinalMensagem}</p>
     `;
 
     mensagemFinalDiv.className = ''; 
