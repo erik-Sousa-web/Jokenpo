@@ -7,7 +7,7 @@ const nomeBot = "Guerreiro";
 
 // Mapeamento de texto para ícone (emojis)
 const iconesJogadas = {
-    'pedra': '🪨',
+    'pedraetik': '🪨',
     'papel': '📄',
     'tesoura': '✂️'
 };
